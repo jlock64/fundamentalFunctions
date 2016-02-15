@@ -51,11 +51,11 @@ var doSomethingCool = function() {
 //
 // // Put your answer below -------------------------
 
-// var sayHi = function() {
-//   alert("Hello, World!");
-// }
-//
-// setTimeout(sayHi, 2000);
+var sayHi = function() {
+  alert("Hello, World!");
+}
+
+setTimeout(sayHi, 2000);
 
 // -----------------------------------------------
 
@@ -74,11 +74,7 @@ var doSomethingCool = function() {
 
 // Please explain your answer.
 
-// [c] z then y
-// letter is first declared as a global variable at the top.  Then the setTimeout function runs but
-// is delayed by 1 millisecond. That's enough time for letter "z' to be console.logged before letter "y".
-// Also, because letter is declared outside the function it is global which means the function can access it
-// without declaring it inside the function.
+//
 
 var letter = "x";
 
@@ -92,6 +88,11 @@ console.log("The letter is", letter);
 
 // Put your answer below -------------------------
 
+// [c] z then y
+// letter is first declared as a global variable at the top.  Then the setTimeout function runs but
+// is delayed by 1 millisecond. That's enough time for letter "z' to be console.logged before letter "y".
+// Also, because letter is declared outside the function it is global which means the function can access it
+// without declaring it inside the function.
 
 // -----------------------------------------------
 
@@ -319,6 +320,8 @@ var accelerate = function(amount) {
     speed = 1;
   }
 };
+
+// a math function needs actual number inputs...otherwise it prints out Nan?
 
 // -----------------------------------------------
 
