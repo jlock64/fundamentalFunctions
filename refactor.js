@@ -28,7 +28,9 @@ function doSomethingCool() {
 }
 
 // Put your answer below -------------------------
-
+var doSomethingCool = function() {
+  console.log("Something Cool!");
+}
 
 // -----------------------------------------------
 
@@ -41,14 +43,19 @@ function doSomethingCool() {
 // after 2 seconds. Refactor to use an anonymous
 // function
 
-function sayHi() {
-  alert("Hello, World!");
-}
+// function sayHi() {
+//   alert("Hello, World!");
+// }
+//
+// setTimeout(sayHi, 2000);
+//
+// // Put your answer below -------------------------
 
-setTimeout(sayHi, 2000);
-
-// Put your answer below -------------------------
-
+// var sayHi = function() {
+//   alert("Hello, World!");
+// }
+//
+// setTimeout(sayHi, 2000);
 
 // -----------------------------------------------
 
@@ -66,6 +73,12 @@ setTimeout(sayHi, 2000);
 // [d]: x then z
 
 // Please explain your answer.
+
+// [c] z then y
+// letter is first declared as a global variable at the top.  Then the setTimeout function runs but
+// is delayed by 1 millisecond. That's enough time for letter "z' to be console.logged before letter "y".
+// Also, because letter is declared outside the function it is global which means the function can access it
+// without declaring it inside the function.
 
 var letter = "x";
 
@@ -100,7 +113,7 @@ var reverseStr = function(str) {
 };
 
 // Put your answer below -------------------------
-
+var reverseStr = function(str) { return str.split().reverse().join();}
 
 // -----------------------------------------------
 
@@ -115,27 +128,35 @@ var reverseStr = function(str) {
 // Refactor this function to use an object
 // instead of an if/else statement.
 
-var spanishColor = function(colorName) {
-  if (colorName.toLowerCase() === "rojo") {
-    return "#ff0000";
-  }
-  else if (colorName.toLowerCase() === "blanco") {
-    return "#ffffff";
-  }
-  else if (colorName.toLowerCase() === "azul") {
-    return "#0000ff";
-  }
-  else if (colorName.toLowerCase() === "verde") {
-    return "#00ff00";
-  }
-  else if (colorName.toLowerCase() === "negro") {
-    return "#000000";
-  }
-};
+  // if (colorName.toLowerCase() === "rojo") {
+  //   return "#ff0000";
+  // }
+  // else if (colorName.toLowerCase() === "blanco") {
+  //   return "#ffffff";
+  // }
+  // else if (colorName.toLowerCase() === "azul") {
+  //   return "#0000ff";
+  // }
+  // else if (colorName.toLowerCase() === "verde") {
+  //   return "#00ff00";
+  // }
+  // else if (colorName.toLowerCase() === "negro") {
+  //   return "#000000";
+  // }
+// };
 
 // Put your answer below -------------------------
-
-
+var spanishColor = function(colorName) {
+ colorName = colorName.toLowerCase();
+ var colorList = {
+   rojo: "#ff0000 ",
+   blanco: "#ffffff ",
+   azul: "#0000ff ",
+   verde: "#00ff00 ",
+   negro: "#000000 ",
+   };
+   return colorList[colorName];
+};
 // -----------------------------------------------
 
 //////////////////////////////////////////////////
@@ -151,7 +172,8 @@ var spanishColor = function(colorName) {
 var foo = "bar";
 
 // Put your answer below -------------------------
-
+var foo; // declared
+foo = "bar"; // then assigned
 
 // -----------------------------------------------
 
@@ -168,12 +190,16 @@ var foo = "bar";
 // function.
 
 var callTenTimes = function(callback) {
-  var range = _.range(10);
-  _.each(range, callback);
+  var range = _.range(10);  //_.range --> 10 spots(intervals starting from index [0])
+  _.each(range, callback); // _.each ()
 };
 
 // Put your answer below -------------------------
 
+var callNTimes = function(callback, choice) {
+ var range = _.range(choice);
+ _.each(range, callback);
+};
 
 // -----------------------------------------------
 
@@ -189,20 +215,52 @@ var callTenTimes = function(callback) {
 // code to protect from this.
 
 // HINT: "global scope"
+  var score = 0;
 
-var score = 0;
-
-var increaseScore = function() {
-  score++;
-};
-
-var decreaseScore = function() {
-  score--;
-};
+    var increaseScore = function() {
+    score++;
+    }
+    var decreaseScore = function() {
+    score--;
+    }
 
 // Put your answer below -------------------------
 
+function keepScore(points) {
+   if (points > 0) {
+      var increaseScore = function() {
+      var score;
+      return score += points;
+      score++;
+      }
+   } else {
+      var decreaseScore = function() {
+      var score;
+      return score -= points;
+      score--;
+      }
+     }
 
+}
+
+function keepScore(points) {
+  var score = 0;
+    if (points > 0){
+         var increaseScore = function() {
+         score++;
+         return score;
+         }
+    }  else {
+         var decreaseScore = function() {
+         score--;
+         return score;
+         }
+       }
+}
+
+function increaseScore() {
+    score++;
+}
 // -----------------------------------------------
 
 //////////////////////////////////////////////////
@@ -221,7 +279,11 @@ var addNumbers = function(numberA, numberB) {
 var twoPlusTwo = addNumbers(2,2);
 
 // Put your answer below -------------------------
+var addNumbers = function(numberA, numberB) {
+  return (numberA + numberB);
+};
 
+var twoPlusTwo = addNumbers(2,2);
 
 // -----------------------------------------------
 
@@ -243,11 +305,20 @@ var twoPlusTwo = addNumbers(2,2);
 var speed = 0;
 
 var accelerate = function(amount) {
-  speed += amount;
+    speed += amount;
 };
 
 // Put your answer below -------------------------
 
+var speed = 0;
+
+var accelerate = function(amount) {
+  if (amount > 0) {
+    speed += amount;
+  } else if (amount = " " || amount < 0){
+    speed = 1;
+  }
+};
 
 // -----------------------------------------------
 
@@ -287,7 +358,7 @@ var accelerate = function(amount) {
 
 var callLater = function(timeout, callback) {
   setTimeout(callback, timeout);
-};
+}
 
 // Put your answer below -------------------------
 
